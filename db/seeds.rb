@@ -452,4 +452,21 @@ places =  [
         }
     ]
 
+game_types = [
+    {
+        "name": "Fútbol",
+        "capacity": 22
+    },
+    {
+        "name": "Futbolito",
+        "capacity": 14
+    },
+    {
+        "name": "Baby fútbol",
+        "capacity": 10
+    }
+]
+
 Place.create(places)
+
+GameType.create(game_types)
