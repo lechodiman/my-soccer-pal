@@ -1,0 +1,30 @@
+@endpoint = http://localhost:3000/api/v1/player_invitations
+@game_id = 2
+@game_invitations_endpoint = http://localhost:3000/api/v1/games/{{game_id}}/player_invitations
+
+### Get all
+GET {{game_invitations_endpoint}}
+
+### Get single
+
+GET {{endpoint}}/1
+
+### Create
+
+POST {{game_invitations_endpoint}}
+Content-Type: application/json
+
+{
+  "email": "user@example.com"
+}
+
+### Update
+PATCH  {{endpoint}}/1
+Content-Type: application/json
+
+{
+  "status": "accepted"
+}
+
+### Delete
+DELETE  {{endpoint}}/1
