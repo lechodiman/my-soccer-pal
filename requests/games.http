@@ -1,0 +1,24 @@
+@endpoint = http://localhost:3000/api/v1/games
+
+### Get all places
+GET {{endpoint}}/
+
+### Get single place
+
+GET {{endpoint}}/1
+
+###
+
+POST {{endpoint}}
+Content-Type: application/json
+
+{
+  "name": "Otro partidito",
+  "date": "Thu Oct 31 2019",
+  "time": "10:00:00",
+  "place_id": 1,
+  "game_type_id": 1
+}
+
+###
+DELETE  {{endpoint}}/1
