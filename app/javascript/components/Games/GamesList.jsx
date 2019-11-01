@@ -8,7 +8,6 @@ const GamesList = ({ games, loadGames, deleteGame }) => {
     loadGames();
   }, [loadGames]);
 
-  console.log(games);
   return (
     <div>
       <h1>GamesList</h1>

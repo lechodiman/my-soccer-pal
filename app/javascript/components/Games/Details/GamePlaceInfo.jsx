@@ -1,7 +1,15 @@
 import React from "react";
 
-const GamePlaceInfo = () => {
-  return <div>GamePlaceInfo</div>;
+const GamePlaceInfo = ({ place }) => {
+  return (
+    <div>
+      <h1 className="display-6">Place Information</h1>
+      {place.name}
+      {place.phone}
+      {place.street}
+      {place.commune}
+    </div>
+  );
 };
 
 export default GamePlaceInfo;

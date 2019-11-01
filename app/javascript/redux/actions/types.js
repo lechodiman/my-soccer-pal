@@ -8,3 +8,5 @@ export const GET_GAME_TYPE = "GET_GAME_TYPE";
 
 export const LOAD_PLACES = "LOAD_PLACES";
 export const GET_PLACE = "GET_PLACE";
+
+export const LOAD_GAME_INVITATIONS = "LOAD_GAME_INVITATIONS";
