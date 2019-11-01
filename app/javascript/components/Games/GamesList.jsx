@@ -17,7 +17,7 @@ const GamesList = ({ games, loadGames, deleteGame }) => {
       <ul>
         {games.map(game => (
           <li key={game.id}>
-            <Link to={`/games/${game.id}`}>{game.name}</Link>
+            <Link to={`/games/details/${game.id}`}>{game.name}</Link>
             <button
               className="btn btn-danger"
               onClick={() => deleteGame(game.id)}
