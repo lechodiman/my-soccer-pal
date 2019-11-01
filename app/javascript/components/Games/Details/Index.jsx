@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getGame } from "../../../redux/actions/gamesActions";
 import { getGameType } from "../../../redux/actions/gameTypesActions";
 import { getPlace } from "../../../redux/actions/placesActions";
-import { loadGameInvitations } from "../../../redux/actions/gameInvitationsActions";
+import { loadPlayerInvitations } from "../../../redux/actions/playerInvitationsActions";
 import { Link } from "react-router-dom";
 
 const GameDetails = ({
@@ -53,6 +53,7 @@ const GameDetails = ({
       <GamePlayersInfo
         gameInvitations={gameInvitations}
         gameType={gameType}
+        game={game}
       ></GamePlayersInfo>
     </div>
   ) : (
@@ -64,14 +65,14 @@ const mapStateToProps = state => ({
   game: state.gamesReducer.game,
   gameType: state.gameTypesReducer.gameType,
   place: state.placesReducer.place,
-  gameInvitations: state.gameInvitationsReducer.gameInvitations
+  gameInvitations: state.playerInvitationsReducer.gameInvitations
 });
 
 const mapDispatchToProps = {
   getGame,
   getGameType,
   getPlace,
-  loadGameInvitations
+  loadGameInvitations: loadPlayerInvitations
 };
 
 export default connect(

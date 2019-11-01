@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import { createPlayerInvitation } from "../../../redux/actions/playerInvitationsActions";
+import { connect } from "react-redux";
 
-const GamePlayersInfo = ({ gameInvitations, gameType }) => {
+const GamePlayersInfo = ({
+  game,
+  gameInvitations,
+  gameType,
+  createPlayerInvitation
+}) => {
+  const [email, setEmail] = useState("");
+
+  const onChange = e => {
+    setEmail(e.target.value);
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    createPlayerInvitation(game.id, email);
+  };
+
   return (
     <div>
       <h3>Players</h3>
+      <form onSubmit={onSubmit}>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="text"
+            className="form-control"
+            name="email"
+            value={email}
+            onChange={onChange}
+          />
+        </div>
+        <input
+          type="submit"
+          className="btn btn-outline-primary"
+          value="Invite"
+        />
+      </form>
+
       <p className="lead">
         {gameInvitations.length}/{gameType.capacity} members
       </p>
@@ -27,4 +63,11 @@ const GamePlayersInfo = ({ gameInvitations, gameType }) => {
   );
 };
 
-export default GamePlayersInfo;
+const mapDispatchToProps = {
+  createPlayerInvitation
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(GamePlayersInfo);
