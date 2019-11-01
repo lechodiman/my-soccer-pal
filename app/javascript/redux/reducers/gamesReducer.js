@@ -8,7 +8,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case LOAD_GAMES:
-      return { ...state, games: paylaod };
+      return { ...state, games: payload };
     case GET_GAME:
       return { ...state, game: payload };
     case DELETE_GAME:
