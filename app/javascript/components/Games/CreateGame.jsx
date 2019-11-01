@@ -4,6 +4,7 @@ import { loadGameTypes } from "../../redux/actions/gameTypesActions";
 import { loadPlaces } from "../../redux/actions/placesActions";
 import { createGame } from "../../redux/actions/gamesActions";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const CreateGame = ({
   gameTypes,
@@ -46,6 +47,9 @@ const CreateGame = ({
   return (
     <div>
       <h1 className="display-4">Create Game</h1>
+      <Link to="/games" className="btn btn-outline-secondary">
+        Back
+      </Link>
       <p className="lead">To create a new game, fill out the form</p>
 
       <form onSubmit={onSubmit}>
@@ -91,13 +95,27 @@ const CreateGame = ({
         </div>
         <div className="form-group">
           <label htmlFor="date">Date</label>
-          <input type="date" value={date} onChange={onChange} />
+          <input
+            type="date"
+            value={date}
+            onChange={onChange}
+            className="form-control"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="time">Time</label>
-          <input type="time" value={time} onChange={onChange} />
+          <input
+            type="time"
+            value={time}
+            onChange={onChange}
+            className="form-control"
+          />
         </div>
-        <input type="submit" className="btn btn-primary" value="Create" />
+        <input
+          type="submit"
+          className="btn btn-lg btn-outline-primary"
+          value="Create"
+        />
       </form>
     </div>
   );

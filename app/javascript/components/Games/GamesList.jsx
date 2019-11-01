@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadGames, deleteGame } from "../../redux/actions/gamesActions";
 import { connect } from "react-redux";
+import GamesListItem from "./GameListItem";
 
 const GamesList = ({ games, loadGames, deleteGame }) => {
   useEffect(() => {
@@ -10,23 +11,27 @@ const GamesList = ({ games, loadGames, deleteGame }) => {
 
   return (
     <div>
-      <h1>GamesList</h1>
-      <Link to="/games/new" className="btn btn-primary">
+      <h1 className="display-4">GamesList</h1>
+      <Link to="/games/new" className="btn btn-lg custom-button">
         New Game
       </Link>
-      <ul>
-        {games.map(game => (
-          <li key={game.id}>
-            <Link to={`/games/details/${game.id}`}>{game.name}</Link>
-            <button
-              className="btn btn-danger"
-              onClick={() => deleteGame(game.id)}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table className="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Name</th>
+            <th scope="col">Game Type</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {games.map(game => (
+            <tr key={game.id}>
+              <GamesListItem game={game}></GamesListItem>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

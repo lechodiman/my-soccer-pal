@@ -5,6 +5,6 @@ import { Provider } from "react-redux";
 
 export default props => (
   <Provider store={store}>
-    <>{Routes}</>
+    <div className="container">{Routes}</div>
   </Provider>
 );

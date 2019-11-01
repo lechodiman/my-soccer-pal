@@ -1,14 +1,21 @@
 import React from "react";
+import moment from "moment";
 
 const GameInfo = ({ game, gameType }) => {
   return (
     <div>
-      <h1 className="display-6">Game Information</h1>
-      {game.date}
-      {game.time}
-
-      {gameType.name}
-      {gameType.capacity}
+      <h3>Game Information</h3>
+      <div className="row">
+        <div className="col-sm">
+          <p>Date: {moment(game.date).format("MMM Do YY")}</p>
+        </div>
+        <div className="col-sm">
+          <p>Time: {moment(game.time).format("h:mm")}</p>
+        </div>
+        <div className="col-md">
+          <p>Game Type: {gameType.name}</p>
+        </div>
+      </div>
     </div>
   );
 };

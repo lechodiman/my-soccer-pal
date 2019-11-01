@@ -7,6 +7,7 @@ import { getGame } from "../../../redux/actions/gamesActions";
 import { getGameType } from "../../../redux/actions/gameTypesActions";
 import { getPlace } from "../../../redux/actions/placesActions";
 import { loadGameInvitations } from "../../../redux/actions/gameInvitationsActions";
+import { Link } from "react-router-dom";
 
 const GameDetails = ({
   game,
@@ -44,9 +45,15 @@ const GameDetails = ({
   return game && gameType && place ? (
     <div>
       <h1 className="display-4">{game.name}</h1>
+      <Link to="/games" className="btn btn-outline-secondary">
+        Back
+      </Link>
       <GameInfo game={game} gameType={gameType}></GameInfo>
       <GamePlaceInfo place={place}></GamePlaceInfo>
-      <GamePlayersInfo gameInvitations={gameInvitations}></GamePlayersInfo>
+      <GamePlayersInfo
+        gameInvitations={gameInvitations}
+        gameType={gameType}
+      ></GamePlayersInfo>
     </div>
   ) : (
     "Loading"
