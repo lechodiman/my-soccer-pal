@@ -52,6 +52,6 @@ class Api::V1::PlayerInvitationsController < ApplicationController
   end
 
   def player_invitation_params
-    params.permit(:email, :status)
+    params.permit(:email, :status, :game_id)
   end
 end

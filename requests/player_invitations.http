@@ -7,7 +7,7 @@ GET {{game_invitations_endpoint}}
 
 ### Get single
 
-GET {{endpoint}}/1
+GET {{endpoint}}/2
 
 ### Create
 
@@ -15,7 +15,7 @@ POST {{game_invitations_endpoint}}
 Content-Type: application/json
 
 {
-  "email": "user@example.com"
+  "email": "lechodiman@uc.cl"
 }
 
 ### Update
@@ -27,4 +27,4 @@ Content-Type: application/json
 }
 
 ### Delete
-DELETE  {{endpoint}}/1
+DELETE  {{endpoint}}/2
