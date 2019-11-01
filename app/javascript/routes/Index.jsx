@@ -9,9 +9,9 @@ export default (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/games" component={GamesList}></Route>
-      <Route path="/games/:id" component={GameDetails}></Route>
-      <Route path="/games/new" component={CreateGame}></Route>
+      <Route path="/games" exact component={GamesList}></Route>
+      <Route path="/games/details/:id" exact component={GameDetails}></Route>
+      <Route path="/games/new" exact component={CreateGame}></Route>
     </Switch>
   </Router>
 );
