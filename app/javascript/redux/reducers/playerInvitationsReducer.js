@@ -1,6 +1,7 @@
 import {
   LOAD_PLAYER_INVITATIONS,
-  ADD_PLAYER_INVITATION
+  ADD_PLAYER_INVITATION,
+  DELETE_PLAYER_INVITATION
 } from "../actions/types";
 
 const initialState = {
@@ -15,6 +16,13 @@ export default (state = initialState, { type, payload }) => {
       return {
         ...state,
         gameInvitations: [...state.gameInvitations, payload]
+      };
+    case DELETE_PLAYER_INVITATION:
+      return {
+        ...state,
+        gameInvitations: state.gameInvitations.filter(
+          invitation => invitation.id !== payload
+        )
       };
     default:
       return state;

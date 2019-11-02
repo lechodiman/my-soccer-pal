@@ -11,7 +11,8 @@ const CreateGame = ({
   places,
   createGame,
   loadGameTypes,
-  loadPlaces
+  loadPlaces,
+  history
 }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,6 +35,7 @@ const CreateGame = ({
   const onSubmit = e => {
     e.preventDefault();
     createGame(formData);
+    history.push("/games");
   };
 
   useEffect(() => {

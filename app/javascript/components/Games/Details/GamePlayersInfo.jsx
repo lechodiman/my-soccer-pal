@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { createPlayerInvitation } from "../../../redux/actions/playerInvitationsActions";
+import {
+  createPlayerInvitation,
+  deletePlayerInvitation
+} from "../../../redux/actions/playerInvitationsActions";
 import { connect } from "react-redux";
 
 const GamePlayersInfo = ({
   game,
   gameInvitations,
   gameType,
-  createPlayerInvitation
+  createPlayerInvitation,
+  deletePlayerInvitation
 }) => {
   const [email, setEmail] = useState("");
 
@@ -48,6 +52,7 @@ const GamePlayersInfo = ({
           <tr>
             <th scope="col">Email</th>
             <th scope="col">Status</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +60,14 @@ const GamePlayersInfo = ({
             <tr key={invitation.id}>
               <td>{invitation.email}</td>
               <td>{invitation.status}</td>
+              <td>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => deletePlayerInvitation(invitation.id)}
+                >
+                  Remove
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -64,7 +77,8 @@ const GamePlayersInfo = ({
 };
 
 const mapDispatchToProps = {
-  createPlayerInvitation
+  createPlayerInvitation,
+  deletePlayerInvitation
 };
 
 export default connect(

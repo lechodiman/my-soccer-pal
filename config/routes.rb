@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :places, except: [:edit, :update, :new]
       resources :game_types, only: [:index, :show]
       resources :games, except: [:edit, :update, :new], shallow: true do
-        resources :player_invitations, only: [:index, :create, :show, :update, :destroy]
+        resources :player_invitations, only: [:index, :create, :show, :update, :destroy] do
+          get 'accept'
+          get 'decline'
+        end
       end
     end
   end

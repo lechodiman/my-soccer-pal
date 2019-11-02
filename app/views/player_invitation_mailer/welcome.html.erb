@@ -1,1 +1,19 @@
-<h1>Welcome!</h1>
+<h1>You have been invited to a game!</h1>
+
+<div>
+  <h2>Game Info</h2>
+  <p>Date and time: <%= @game.date.strftime("%F") %>, <%= @game.time.strftime("at %I:%M%p") %></p>
+  <p>Game Type: <%= @game.game_type.name %></p>
+</div>
+
+<div>
+  <h2>Place Info</h2>
+  <p>Name: <%= @place.name %></p>
+  <p>Phone: <%= @place.phone %></p>
+  <p>Street: <%= @place.street %></p>
+  <p>Commune: <%= @place.commune %></p>
+</div>
+
+<%= link_to 'Accept', api_v1_player_invitation_accept_url(@player_invitation) %>
+
+<%= link_to 'Decline', api_v1_player_invitation_decline_url(@player_invitation) %>

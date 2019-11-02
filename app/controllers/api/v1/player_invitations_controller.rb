@@ -1,6 +1,6 @@
 class Api::V1::PlayerInvitationsController < ApplicationController
   before_action :set_game, only: [:index, :create]
-  before_action :set_player_invitation, only: [:show, :destroy, :update]
+  before_action :set_player_invitation, only: [:show, :destroy, :update, :accept, :decline]
 
   def index
     player_invitations = @game.player_invitations
@@ -12,12 +12,11 @@ class Api::V1::PlayerInvitationsController < ApplicationController
     player_invitation.status = "pending"
 
     if player_invitation.save
+      PlayerInvitationMailer.welcome(player_invitation).deliver_now
       render json: player_invitation
     else
       render json: player_invitation.errors
     end
-
-    # TODO: Send email
   end
 
   def show
@@ -36,6 +35,16 @@ class Api::V1::PlayerInvitationsController < ApplicationController
     end
   end
 
+  def accept
+    @player_invitation.update({status: "accepted"})
+    redirect_to "/games/details/#{@player_invitation.game_id}"
+  end
+
+  def decline
+    @player_invitation.update({status: "declined"})
+    redirect_to "/games/details/#{@player_invitation.game_id}"
+  end
+
   def destroy
     @player_invitation&.destroy
     render json: { message: 'player invitation deleted!' }
@@ -48,7 +57,8 @@ class Api::V1::PlayerInvitationsController < ApplicationController
   end
 
   def set_player_invitation
-    @player_invitation = PlayerInvitation.find(params[:id])
+    player_invitation_id = params[:id] || params[:player_invitation_id]
+    @player_invitation = PlayerInvitation.find(player_invitation_id)
   end
 
   def player_invitation_params

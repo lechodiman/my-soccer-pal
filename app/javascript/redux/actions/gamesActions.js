@@ -37,8 +37,8 @@ export const createGame = formData => async dispatch => {
 
 export const deleteGame = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/v1/games/${id}`);
-    dispatch({ type: DELETE_GAME, payload: res.data });
+    await axios.delete(`/api/v1/games/${id}`);
+    dispatch({ type: DELETE_GAME, payload: id });
   } catch (err) {
     console.error(err);
   }

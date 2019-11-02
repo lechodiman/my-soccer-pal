@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import moment from "moment";
+import { deleteGame } from "../../redux/actions/gamesActions";
+import { connect } from "react-redux";
 
-const GameListItem = ({ game }) => {
+const GameListItem = ({ game, deleteGame }) => {
   const [gameType, setGameType] = useState(null);
 
   useEffect(() => {
@@ -44,4 +46,11 @@ const GameListItem = ({ game }) => {
   );
 };
 
-export default GameListItem;
+const mapDispatchToProps = {
+  deleteGame
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(GameListItem);

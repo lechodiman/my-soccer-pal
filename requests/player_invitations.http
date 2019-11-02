@@ -15,7 +15,7 @@ POST {{game_invitations_endpoint}}
 Content-Type: application/json
 
 {
-  "email": "lechodiman@uc.cl"
+  "email": "luis_shodyman@hotmail.com"
 }
 
 ### Update
@@ -27,4 +27,4 @@ Content-Type: application/json
 }
 
 ### Delete
-DELETE  {{endpoint}}/2
+DELETE  {{endpoint}}/4
