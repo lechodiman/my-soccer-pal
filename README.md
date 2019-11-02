@@ -1,24 +1,55 @@
-# README
+<h1 align="center">Welcome to my_soccer_pal 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> Full stack application to help football lovers organize friendly games
 
-Things you may want to cover:
+## Install
 
-* Ruby version
+```sh
+bundle && yarn
+```
 
-* System dependencies
+Run migrations
 
-* Configuration
+```sh
+rake db:migrate
+```
 
-* Database creation
+## Usage
 
-* Database initialization
+Create a `.env` file with the following variables:
 
-* How to run the test suite
+```
+DB_PASS=...
+DB_USER=...
+SENDGRID_API_KEY=...
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the server
 
-* Deployment instructions
+```sh
+rails s
+```
 
-* ...
+## Run tests
+
+```sh
+rails test
+```
+
+## Author
+
+👤 **Luis Chodiman**
+
+- Website: lechodiman.github.io
+- Github: [@lechodiman](https://github.com/lechodiman)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
