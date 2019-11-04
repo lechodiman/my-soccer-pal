@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../components/Home";
 import GamesList from "../components/Games/GamesList";
-import GameDetails from "../components/Games/Details";
+import GameDetails from "../components/Games/Details/GameDetails";
 import CreateGame from "../components/Games/CreateGame";
 
 export default (
