@@ -17,6 +17,12 @@ Run migrations
 rake db:migrate
 ```
 
+Run seeds
+
+```sh
+rake db:seed
+```
+
 ## Usage
 
 Create a `.env` file with the following variables:
